@@ -1,0 +1,40 @@
+# Data Files
+training_data_file: diabetes.csv
+# test_data_file: test.csv
+
+# Variables
+# The variable we are attempting to predict (target)
+target_var: target
+
+pipeline_name: diabetes_model
+pipeline_save_file: diabetes__model_output_v
+
+features:      # final features to be use
+  - age
+  - bmi 
+  - bp 
+  - s1
+  - s2
+  - s3
+  - s4
+  - s5
+  - s6
+
+unused_fields:  # Features to drop before pipeline
+  - sex
+  
+# set train/test split
+test_size: 0.2
+eta: 0.011
+# to set the random seed
+random_state: 42
+random_state1: 42
+# alogrithm parameters
+n_estimators: 200
+max_depth: 4
+#max_features: 3
+# Fraction of samples used for fitting individual trees. Reduces overfitting by randomly selecting a subset of samples.
+subsample: 1.0
+# Fraction of features used for each tree. Helps prevent overfitting by introducing randomness in feature selection.           
+colsample_bytree: 0.9
+objective: reg:squarederror
