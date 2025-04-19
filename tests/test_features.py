@@ -8,12 +8,13 @@ file = Path(__file__).resolve()
 parent, root = file.parent, file.parents[1]
 sys.path.append(str(root))
 
+import pandas as pd
 import numpy as np
 from diabetes_model.config.core import config
 from diabetes_model.processing.features import convertStrToFloat
+import pytest
 
-
-def test_transform_converts_strings_to_float(self):
+def test_transform_converts_strings_to_float():
         """Test that transform method converts string columns to float."""
         # Create a sample dataframe with string columns
         data = pd.DataFrame({
@@ -39,8 +40,9 @@ def test_transform_converts_strings_to_float(self):
         
         # Check that original dataframe was not modified
         assert data['col1'].dtype == object
+        print('Convert to string tested successfully')
 
-def test_transform_with_invalid_values(self):
+def test_transform_with_invalid_values():
         """Test transform with values that cannot be converted to float."""
         # Create a sample dataframe with problematic values
         data = pd.DataFrame({
@@ -53,3 +55,5 @@ def test_transform_with_invalid_values(self):
         # Should raise ValueError due to invalid conversion
         with pytest.raises(ValueError):
             transformer.transform(data)
+
+        print('Successfully tested the method test_transform_with_invalid_values')
