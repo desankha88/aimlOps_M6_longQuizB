@@ -20,8 +20,8 @@ from diabetes_model.processing.data_manager import load_raw_dataset
 def sample_input_data():
     data = load_raw_dataset(file_name=config.app_config_.training_data_file)
 
-    X = data.drop(config.model_config_.target, axis=1)       # predictors
-    y = data[config.model_config_.target]                    # target
+    X =  data[config.model_config_.features]       # predictors
+    y = data[config.model_config_.target_var]                    # target
 
     # divide train and test
     X_train, X_test, y_train, y_test = train_test_split(
