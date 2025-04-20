@@ -9,7 +9,7 @@ from typing import List, Optional, Tuple, Union
 import numpy as np
 import pandas as pd
 from pydantic import BaseModel, ValidationError
-
+from pydantic import ConfigDict
 from diabetes_model.config.core import config
 from diabetes_model.processing.data_manager import pre_pipeline_preparation
 
@@ -46,10 +46,15 @@ class DataInputSchema(BaseModel):
     
     # Make sex truly optional by giving it a default value
     sex: Optional[float] = None
+
+    model_config = ConfigDict(
+        # config options here
+        extra = "ignore"  # Allows extra fields not in the model
+    )
     
     # Add model configuration to allow extra fields
-    class Config:
-        extra = "ignore"  # Allows extra fields not in the model
+    #class Config:
+    #    extra = "ignore"  # Allows extra fields not in the model
 
 
 class MultipleDataInputs(BaseModel):
