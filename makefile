@@ -1,10 +1,8 @@
-# Makefile 
+# Makefile
+install:
+	pip install --upgrade pip && pip install -r diabetes_model_api\requirements.txt && pip install -r requirements\test_requirements.txt
 
-install: 
-    pip install --upgrade pip && pip install -r requirements.txt 
- 
-test: 
-    python -m pytest tests/test_*.py
+test:
+	python -m pytest tests/test_*.py
 
- all: 
-    install test
+all: install test

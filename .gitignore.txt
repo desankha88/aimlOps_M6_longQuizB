@@ -19,6 +19,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+tests/__pycache__/
 
 # Virtual Environment
 venv/
